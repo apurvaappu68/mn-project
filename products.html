@@ -1,0 +1,784 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Responsive Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products - ShopZone</title>
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header>
+
+        <!-- Logo -->
+        <div class="logo">
+            <a href="index.html">ShopZone</a>
+        </div>
+
+
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+
+            <a href="login.html">Login</a>
+
+            <a href="register.html">Register</a>
+
+            <a href="cart.html">🛒 Cart</a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================== PRODUCTS SECTION ==================== -->
+    <main class="products-page">
+
+        <!-- Page Heading -->
+        <section class="products-header">
+
+            <h1>Explore Our Products</h1>
+
+            <p>
+                Find the best products at the best prices.
+            </p>
+
+        </section>
+
+
+        <!-- ==================== SEARCH & FILTER ==================== -->
+        <section class="product-controls">
+
+            <!-- Search -->
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="productSearch"
+                    placeholder="Search products..."
+                    onkeyup="searchProducts()"
+                >
+
+                <button onclick="searchProducts()">
+                    🔍 Search
+                </button>
+
+            </div>
+
+
+            <!-- Category Filter -->
+            <div class="filter-box">
+
+                <label for="categoryFilter">
+                    Category:
+                </label>
+
+                <select
+                    id="categoryFilter"
+                    onchange="filterProducts()"
+                >
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="mobiles">
+                        Mobiles
+                    </option>
+
+                    <option value="clothes">
+                        Clothes
+                    </option>
+
+                    <option value="footwear">
+                        Footwear
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Price Filter -->
+            <div class="filter-box">
+
+                <label for="priceFilter">
+                    Price:
+                </label>
+
+                <select
+                    id="priceFilter"
+                    onchange="filterProducts()"
+                >
+
+                    <option value="all">
+                        All Prices
+                    </option>
+
+                    <option value="low">
+                        Under ₹1,000
+                    </option>
+
+                    <option value="medium">
+                        ₹1,000 - ₹10,000
+                    </option>
+
+                    <option value="high">
+                        Above ₹10,000
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== CATEGORY BUTTONS ==================== -->
+        <section class="category-buttons">
+
+            <button
+                onclick="showCategory('all')"
+                class="category-btn active"
+            >
+                🛍️ All
+            </button>
+
+            <button
+                onclick="showCategory('mobiles')"
+                class="category-btn"
+            >
+                📱 Mobiles
+            </button>
+
+            <button
+                onclick="showCategory('clothes')"
+                class="category-btn"
+            >
+                👕 Clothes
+            </button>
+
+            <button
+                onclick="showCategory('footwear')"
+                class="category-btn"
+            >
+                👟 Footwear
+            </button>
+
+        </section>
+
+
+        <!-- ==================== PRODUCTS ==================== -->
+        <section class="all-products">
+
+            <div class="product-container" id="productContainer">
+
+
+                <!-- ==================== MOBILE 1 ==================== -->
+                <div
+                    class="product-card"
+                    data-category="mobiles"
+                    data-price="29999"
+                    data-name="Smartphone Pro"
+                >
+
+                    <div class="product-image">
+                        📱
+                    </div>
+
+                    <button
+                        class="wishlist-btn"
+                        onclick="addToWishlist('Smartphone Pro', 29999)"
+                    >
+                        ♡
+                    </button>
+
+                    <h3>
+                        Smartphone Pro
+                    </h3>
+
+                    <p class="product-category">
+                        Mobiles
+                    </p>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐⭐
+                    </p>
+
+                    <p class="price">
+                        ₹29,999
+                    </p>
+
+                    <div class="product-actions">
+
+                        <button
+                            onclick="viewProduct('Smartphone Pro')"
+                        >
+                            View Details
+                        </button>
+
+                        <button
+                            onclick="addToCart('Smartphone Pro', 29999)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================== MOBILE 2 ==================== -->
+                <div
+                    class="product-card"
+                    data-category="mobiles"
+                    data-price="19999"
+                    data-name="Smartphone X"
+                >
+
+                    <div class="product-image">
+                        📱
+                    </div>
+
+                    <button
+                        class="wishlist-btn"
+                        onclick="addToWishlist('Smartphone X', 19999)"
+                    >
+                        ♡
+                    </button>
+
+                    <h3>
+                        Smartphone X
+                    </h3>
+
+                    <p class="product-category">
+                        Mobiles
+                    </p>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐☆
+                    </p>
+
+                    <p class="price">
+                        ₹19,999
+                    </p>
+
+                    <div class="product-actions">
+
+                        <button
+                            onclick="viewProduct('Smartphone X')"
+                        >
+                            View Details
+                        </button>
+
+                        <button
+                            onclick="addToCart('Smartphone X', 19999)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================== MOBILE 3 ==================== -->
+                <div
+                    class="product-card"
+                    data-category="mobiles"
+                    data-price="39999"
+                    data-name="Smartphone Ultra"
+                >
+
+                    <div class="product-image">
+                        📱
+                    </div>
+
+                    <button
+                        class="wishlist-btn"
+                        onclick="addToWishlist('Smartphone Ultra', 39999)"
+                    >
+                        ♡
+                    </button>
+
+                    <h3>
+                        Smartphone Ultra
+                    </h3>
+
+                    <p class="product-category">
+                        Mobiles
+                    </p>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐⭐
+                    </p>
+
+                    <p class="price">
+                        ₹39,999
+                    </p>
+
+                    <div class="product-actions">
+
+                        <button
+                            onclick="viewProduct('Smartphone Ultra')"
+                        >
+                            View Details
+                        </button>
+
+                        <button
+                            onclick="addToCart('Smartphone Ultra', 39999)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================== CLOTH 1 ==================== -->
+                <div
+                    class="product-card"
+                    data-category="clothes"
+                    data-price="999"
+                    data-name="Casual Shirt"
+                >
+
+                    <div class="product-image">
+                        👕
+                    </div>
+
+                    <button
+                        class="wishlist-btn"
+                        onclick="addToWishlist('Casual Shirt', 999)"
+                    >
+                        ♡
+                    </button>
+
+                    <h3>
+                        Casual Shirt
+                    </h3>
+
+                    <p class="product-category">
+                        Clothes
+                    </p>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐☆
+                    </p>
+
+                    <p class="price">
+                        ₹999
+                    </p>
+
+                    <div class="product-actions">
+
+                        <button
+                            onclick="viewProduct('Casual Shirt')"
+                        >
+                            View Details
+                        </button>
+
+                        <button
+                            onclick="addToCart('Casual Shirt', 999)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================== CLOTH 2 ==================== -->
+                <div
+                    class="product-card"
+                    data-category="clothes"
+                    data-price="1499"
+                    data-name="Denim Jeans"
+                >
+
+                    <div class="product-image">
+                        👖
+                    </div>
+
+                    <button
+                        class="wishlist-btn"
+                        onclick="addToWishlist('Denim Jeans', 1499)"
+                    >
+                        ♡
+                    </button>
+
+                    <h3>
+                        Denim Jeans
+                    </h3>
+
+                    <p class="product-category">
+                        Clothes
+                    </p>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐⭐
+                    </p>
+
+                    <p class="price">
+                        ₹1,499
+                    </p>
+
+                    <div class="product-actions">
+
+                        <button
+                            onclick="viewProduct('Denim Jeans')"
+                        >
+                            View Details
+                        </button>
+
+                        <button
+                            onclick="addToCart('Denim Jeans', 1499)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================== CLOTH 3 ==================== -->
+                <div
+                    class="product-card"
+                    data-category="clothes"
+                    data-price="1999"
+                    data-name="Fashion Dress"
+                >
+
+                    <div class="product-image">
+                        👗
+                    </div>
+
+                    <button
+                        class="wishlist-btn"
+                        onclick="addToWishlist('Fashion Dress', 1999)"
+                    >
+                        ♡
+                    </button>
+
+                    <h3>
+                        Fashion Dress
+                    </h3>
+
+                    <p class="product-category">
+                        Clothes
+                    </p>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐☆
+                    </p>
+
+                    <p class="price">
+                        ₹1,999
+                    </p>
+
+                    <div class="product-actions">
+
+                        <button
+                            onclick="viewProduct('Fashion Dress')"
+                        >
+                            View Details
+                        </button>
+
+                        <button
+                            onclick="addToCart('Fashion Dress', 1999)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================== FOOTWEAR 1 ==================== -->
+                <div
+                    class="product-card"
+                    data-category="footwear"
+                    data-price="1999"
+                    data-name="Running Shoes"
+                >
+
+                    <div class="product-image">
+                        👟
+                    </div>
+
+                    <button
+                        class="wishlist-btn"
+                        onclick="addToWishlist('Running Shoes', 1999)"
+                    >
+                        ♡
+                    </button>
+
+                    <h3>
+                        Running Shoes
+                    </h3>
+
+                    <p class="product-category">
+                        Footwear
+                    </p>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐⭐
+                    </p>
+
+                    <p class="price">
+                        ₹1,999
+                    </p>
+
+                    <div class="product-actions">
+
+                        <button
+                            onclick="viewProduct('Running Shoes')"
+                        >
+                            View Details
+                        </button>
+
+                        <button
+                            onclick="addToCart('Running Shoes', 1999)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================== FOOTWEAR 2 ==================== -->
+                <div
+                    class="product-card"
+                    data-category="footwear"
+                    data-price="1299"
+                    data-name="Casual Sneakers"
+                >
+
+                    <div class="product-image">
+                        👟
+                    </div>
+
+                    <button
+                        class="wishlist-btn"
+                        onclick="addToWishlist('Casual Sneakers', 1299)"
+                    >
+                        ♡
+                    </button>
+
+                    <h3>
+                        Casual Sneakers
+                    </h3>
+
+                    <p class="product-category">
+                        Footwear
+                    </p>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐☆
+                    </p>
+
+                    <p class="price">
+                        ₹1,299
+                    </p>
+
+                    <div class="product-actions">
+
+                        <button
+                            onclick="viewProduct('Casual Sneakers')"
+                        >
+                            View Details
+                        </button>
+
+                        <button
+                            onclick="addToCart('Casual Sneakers', 1299)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================== FOOTWEAR 3 ==================== -->
+                <div
+                    class="product-card"
+                    data-category="footwear"
+                    data-price="799"
+                    data-name="Comfort Sandals"
+                >
+
+                    <div class="product-image">
+                        🩴
+                    </div>
+
+                    <button
+                        class="wishlist-btn"
+                        onclick="addToWishlist('Comfort Sandals', 799)"
+                    >
+                        ♡
+                    </button>
+
+                    <h3>
+                        Comfort Sandals
+                    </h3>
+
+                    <p class="product-category">
+                        Footwear
+                    </p>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐☆
+                    </p>
+
+                    <p class="price">
+                        ₹799
+                    </p>
+
+                    <div class="product-actions">
+
+                        <button
+                            onclick="viewProduct('Comfort Sandals')"
+                        >
+                            View Details
+                        </button>
+
+                        <button
+                            onclick="addToCart('Comfort Sandals', 799)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- No Products Message -->
+            <div
+                id="noProducts"
+                class="no-products"
+                style="display: none;"
+            >
+
+                <h2>
+                    😔 No Products Found
+                </h2>
+
+                <p>
+                    Try another search or category.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+
+        <div class="footer-container">
+
+            <!-- About -->
+            <div class="footer-section">
+
+                <h3>ShopZone</h3>
+
+                <p>
+                    Your simple online shopping destination
+                    for mobiles, clothes and footwear.
+                </p>
+
+            </div>
+
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="orders.html">My Orders</a>
+                <a href="wishlist.html">Wishlist</a>
+
+            </div>
+
+
+            <!-- Customer Service -->
+            <div class="footer-section">
+
+                <h3>Customer Service</h3>
+
+                <a href="contact.html">Contact Us</a>
+                <a href="faq.html">FAQ</a>
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+
+            </div>
+
+
+            <!-- Social Links -->
+            <div class="footer-section">
+
+                <h3>Follow Us</h3>
+
+                <div class="social-links">
+
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 ShopZone. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Common JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```

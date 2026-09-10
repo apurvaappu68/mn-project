@@ -1,0 +1,492 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment - ShopZone</title>
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+
+        <div class="logo">
+            <a href="index.html">ShopZone</a>
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="wishlist.html">Wishlist</a>
+            <a href="orders.html">My Orders</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+
+        <div class="header-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="register.html" class="register-btn">Register</a>
+            <a href="cart.html" class="cart-btn">🛒 Cart</a>
+        </div>
+
+    </header>
+
+
+    <!-- ================= PAYMENT SECTION ================= -->
+    <section class="payment-section">
+
+        <div class="payment-container">
+
+            <!-- Page Heading -->
+            <div class="payment-heading">
+                <h1>💳 Secure Payment</h1>
+                <p>Complete your payment to place your order</p>
+            </div>
+
+
+            <!-- Payment Layout -->
+            <div class="payment-layout">
+
+
+                <!-- ================= PAYMENT METHODS ================= -->
+                <div class="payment-card">
+
+                    <h2>Choose Payment Method</h2>
+
+                    <form id="paymentForm">
+
+
+                        <!-- UPI -->
+                        <div class="payment-option">
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="paymentMethod"
+                                    value="upi"
+                                    onclick="showPaymentMethod('upi')"
+                                    required
+                                >
+
+                                <span>📱</span>
+
+                                <strong>UPI</strong>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- UPI Details -->
+                        <div id="upiDetails" class="payment-details">
+
+                            <div class="form-group">
+
+                                <label for="upiId">
+                                    UPI ID
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="upiId"
+                                    placeholder="example@upi"
+                                >
+
+                            </div>
+
+                            <p class="payment-note">
+                                Enter your UPI ID to continue with the payment.
+                            </p>
+
+                        </div>
+
+
+                        <!-- Debit / Credit Card -->
+                        <div class="payment-option">
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="paymentMethod"
+                                    value="card"
+                                    onclick="showPaymentMethod('card')"
+                                >
+
+                                <span>💳</span>
+
+                                <strong>Credit / Debit Card</strong>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Card Details -->
+                        <div id="cardDetails" class="payment-details">
+
+                            <div class="form-group">
+
+                                <label for="cardName">
+                                    Card Holder Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="cardName"
+                                    placeholder="Enter card holder name"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="cardNumber">
+                                    Card Number
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="cardNumber"
+                                    placeholder="XXXX XXXX XXXX XXXX"
+                                    maxlength="19"
+                                >
+
+                            </div>
+
+
+                            <div class="card-row">
+
+                                <div class="form-group">
+
+                                    <label for="expiryDate">
+                                        Expiry Date
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="expiryDate"
+                                        placeholder="MM/YY"
+                                        maxlength="5"
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="cvv">
+                                        CVV
+                                    </label>
+
+                                    <input
+                                        type="password"
+                                        id="cvv"
+                                        placeholder="XXX"
+                                        maxlength="3"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Net Banking -->
+                        <div class="payment-option">
+
+                            <label>
+
+                                <input
+                                    type="radio"
+                                    name="paymentMethod"
+                                    value="netbanking"
+                                    onclick="showPaymentMethod('netbanking')"
+                                >
+
+                                <span>🏦</span>
+
+                                <strong>Net Banking</strong>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Net Banking Details -->
+                        <div id="netbankingDetails" class="payment-details">
+
+                            <div class="form-group">
+
+                                <label for="bank">
+                                    Select Bank
+                                </label>
+
+                                <select id="bank">
+
+                                    <option value="">
+                                        Select your bank
+                                    </option>
+
+                                    <option value="sbi">
+                                        State Bank of India
+                                    </option>
+
+                                    <option value="hdfc">
+                                        HDFC Bank
+                                    </option>
+
+                                    <option value="icici">
+                                        ICICI Bank
+                                    </option>
+
+                                    <option value="axis">
+                                        Axis Bank
+                                    </option>
+
+                                    <option value="other">
+                                        Other Bank
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Cash on Delivery -->
+                        <div class="payment-option">
+
+                            <label>
+
+                                <input
+                                    type="radio"
+                                    name="paymentMethod"
+                                    value="cod"
+                                    onclick="showPaymentMethod('cod')"
+                                >
+
+                                <span>💵</span>
+
+                                <strong>Cash on Delivery</strong>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- COD Details -->
+                        <div id="codDetails" class="payment-details">
+
+                            <p>
+                                Pay when your order is delivered to your
+                                address.
+                            </p>
+
+                            <p class="payment-note">
+                                Additional charges may apply for Cash on
+                                Delivery.
+                            </p>
+
+                        </div>
+
+
+                        <!-- Security Information -->
+                        <div class="secure-payment">
+
+                            <span>🔒</span>
+
+                            <div>
+                                <strong>Secure Payment</strong>
+
+                                <p>
+                                    Your payment information is protected
+                                    and processed securely.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- Pay Button -->
+                        <button
+                            type="submit"
+                            class="payment-btn"
+                        >
+                            🔒 Pay Now
+                        </button>
+
+
+                        <!-- Back to Checkout -->
+                        <a
+                            href="checkout.html"
+                            class="back-checkout"
+                        >
+                            ← Back to Checkout
+                        </a>
+
+                    </form>
+
+                </div>
+
+
+                <!-- ================= ORDER SUMMARY ================= -->
+                <div class="order-summary">
+
+                    <h2>Order Summary</h2>
+
+
+                    <div class="summary-item">
+
+                        <span>Products</span>
+
+                        <span id="paymentSubtotal">
+                            ₹0
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <span>Delivery Charges</span>
+
+                        <span id="paymentDelivery">
+                            ₹0
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <span>Discount</span>
+
+                        <span id="paymentDiscount">
+                            ₹0
+                        </span>
+
+                    </div>
+
+
+                    <hr>
+
+
+                    <div class="summary-total">
+
+                        <span>Total Amount</span>
+
+                        <strong id="paymentTotal">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Payment Benefits -->
+                    <div class="payment-benefits">
+
+                        <h3>Why Pay Securely?</h3>
+
+                        <p>🔒 Secure transactions</p>
+
+                        <p>🛡️ Protected payment information</p>
+
+                        <p>📦 Fast order processing</p>
+
+                        <p>↩️ Easy return & refund support</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-section">
+
+                <h3>ShopZone</h3>
+
+                <p>
+                    Your one-stop online shopping destination.
+                </p>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+
+                <a href="products.html">Products</a>
+
+                <a href="about.html">About Us</a>
+
+                <a href="contact.html">Contact Us</a>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>Customer Service</h3>
+
+                <a href="orders.html">My Orders</a>
+
+                <a href="wishlist.html">Wishlist</a>
+
+                <a href="faq.html">FAQ</a>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>Contact</h3>
+
+                <p>📍 Hyderabad, Telangana</p>
+
+                <p>📞 +91 98765 43210</p>
+
+                <p>✉️ support@shopzone.com</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                &copy; 2026 ShopZone. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Common JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
